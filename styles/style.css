@@ -52,6 +52,17 @@
 .col-7, .col-5 {
     padding: 0 15px;
 }
+#img-left{
+    position: relative;
+    right: 7rem;
+}
+#img-hero{
+    position: relative;
+    right: 12rem;
+}
+#banner-section{
+    background-color: #00FFBA;
+}
 /* Responsive styles */
 @media only screen and (max-width: 992px) {
     .col-7 {
@@ -74,5 +85,8 @@
     }
     h4 {
         font-size: 18px;
+    }
+    #img-hero{
+        position: static;
     }
 }
