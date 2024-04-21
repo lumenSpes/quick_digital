@@ -73,7 +73,6 @@
 }
 
 /* why learn section */
-
 .why-learn-heading{
     background-color: #461E59;
 }
@@ -81,6 +80,11 @@
 /* why learn section */
 .why-us{
     background-color: #FFBCBC;
+}
+
+.cls-border{
+    border: 10px solid #00BD64;
+    border-style: dashed;
 }
 
 .why-us-heading{
