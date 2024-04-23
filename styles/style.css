@@ -30,7 +30,7 @@
 }
 
 .nav-link:hover {
-    background-color: #E81F64;
+    background-color: rgb(209, 58, 58);
     color: #fff !important;
     transition: all 0.5s ease-in-out;
 }
@@ -40,6 +40,28 @@
     font-size: 18px !important;
 }
 
+.hero-section{
+    background-color: #8C52FF;
+}
+
+.heading-img-1 {
+    width: 80%;
+}
+
+.heading-img-2 {
+    width: 80%;
+}
+
+.heading-img-3 {
+    width: 100%;
+    position: relative;
+    bottom: 120px;
+    right: 150px;
+}
+
+.hero-decription-text{
+    font-size: 24px !important;
+}
 
 .btn-stylish {
     background-color: #E81F64;
@@ -134,8 +156,6 @@
 |            course section             |
 --------------------------------------- */
 
-.course-section {}
-
 .course-heading {
     font-size: 40px;
     font-weight: 700;
@@ -197,9 +217,11 @@ footer {
 
 @media (max-width: 992px) {
 
-    /* body{
-        overflow: hidden;
-    } */
+    .top-contacts{
+        gap: 1rem;
+        justify-content: center;
+    }
+
     .social-links-top-left {
         justify-content: center;
     }
@@ -221,10 +243,13 @@ footer {
         font-size: 45px;
     }
 
+    .custom-padding{
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+
     .about-descripttion {
         font-size: 20px;
-        padding-left: 1rem;
-        padding-right: 1rem;
     }
 
     .about-img-element {
@@ -273,6 +298,11 @@ footer {
         gap: 3rem;
     }
 
+    .footer-elements{
+        padding-top: 3rem;
+        padding-left: 3rem;
+    }
+
     .footer-logo {
         width: 30%;
     }
@@ -284,8 +314,25 @@ footer {
 
 @media (max-width: 576px) {
 
+    .hero-decription-text{
+        font-size: 16px !important;
+    }
+
     .nav-item .nav-link {
         font-size: 16px !important;
+    }
+
+    .nav-link {
+        font-size: 16px !important;
+    }
+
+
+    .hidden-icons {
+        display: none;
+    }
+
+    .contact-btn{
+        display: none !important;
     }
 
     .about-img-element {

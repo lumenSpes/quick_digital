@@ -5,8 +5,29 @@
     font-family: "Hind Siliguri", sans-serif;
 }
 
+/*-------------------------------
+|        common styles          | 
+-------------------------------*/
+
+.text-one{
+    font-size: 56px;
+}
+
+.text-two{
+    font-size: 24px !important;
+    text-align: center !important;
+}
+
+.max-width {
+    max-width: 1140px !important;
+}
+
 .bg-color{
     background-color: #461E59;
+}
+
+.hero-heading-style{
+    color: #00FFBA !important;
 }
 
 .header-bg{
@@ -53,4 +74,38 @@
 
 .buy-btn:hover {
     animation: pulse 1s infinite;
+}
+
+.book-img{
+    height: auto;
+    width: 60%;
+}
+
+@media (max-width: 992px) {
+    .text-one{
+        font-size: 45px;
+    }
+
+    .hero-description{
+        text-align: justify;
+    }
+
+    .custom-padding{
+        padding: 2rem !important;
+    }
+
+    .text-two{
+        font-size: 20px !important;
+        text-align: justify !important;
+    }
+}
+@media (max-width: 576px) {
+    .text-one{
+        font-size: 28px;
+    }
+
+    .text-two{
+        font-size: 18px !important;
+        text-align: justify !important;
+    }
 }
