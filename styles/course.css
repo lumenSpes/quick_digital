@@ -5,6 +5,23 @@
     font-family: "Hind Siliguri", sans-serif;
 }
 
+/*-------------------------------
+|        common styles          | 
+-------------------------------*/
+
+.text-one{
+    font-size: 56px;
+}
+
+.text-two{
+    font-size: 24px !important;
+    text-align: center !important;
+}
+
+.max-width {
+    max-width: 1140px !important;
+}
+
 .bg-headline{
     background-color: #00BD64;
 }
@@ -63,6 +80,7 @@
     flex: 1; 
     border-bottom: 20vh solid #E81F64; 
     border-right: 50vw solid transparent; 
+    overflow: hidden;
 }
 
 #left-box {
@@ -70,6 +88,7 @@
     flex: 1; 
     border-bottom: 20vh solid #E81F64;
     border-left: 50vw solid transparent;
+    overflow: hidden;
 }
 
 /* why learn section */
@@ -116,6 +135,15 @@
 }
 
 @media (max-width: 992px) {
+    .text-one{
+        font-size: 45px;
+    }
+
+    .text-two{
+        font-size: 20px !important;
+        text-align: justify !important;
+    }
+
     #right-box {
         height: 12vh;
         border-bottom: 12vh solid #E81F64;
@@ -126,8 +154,20 @@
         border-bottom: 12vh solid #E81F64;
         
     }
+
+    .custom-padding{
+        padding: 2rem !important;
+    }
+
 }
 
 @media (max-width: 576px) {
-    
+    .text-one{
+        font-size: 28px;
+    }
+
+    .text-two{
+        font-size: 18px !important;
+        text-align: justify !important;
+    }
 }

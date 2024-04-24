@@ -86,6 +86,11 @@
         font-size: 45px;
     }
 
+    .text-two{
+        font-size: 20px !important;
+        text-align: justify !important;
+    }
+
     .hero-description{
         text-align: justify;
     }
@@ -94,10 +99,6 @@
         padding: 2rem !important;
     }
 
-    .text-two{
-        font-size: 20px !important;
-        text-align: justify !important;
-    }
 }
 @media (max-width: 576px) {
     .text-one{
