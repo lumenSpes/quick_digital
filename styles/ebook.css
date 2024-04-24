@@ -60,6 +60,10 @@
     z-index: 5;
 }
 
+.custom-btn{
+    margin-top: 3rem;
+}
+
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -99,6 +103,10 @@
         padding: 2rem !important;
     }
 
+    .custom-btn{
+        margin-top: 1.5rem;
+    }
+
 }
 @media (max-width: 576px) {
     .text-one{
@@ -108,5 +116,9 @@
     .text-two{
         font-size: 18px !important;
         text-align: justify !important;
+    }
+
+    .custom-btn{
+        margin-top: 0.5rem;
     }
 }
