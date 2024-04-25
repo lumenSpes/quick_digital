@@ -25,6 +25,14 @@
     justify-content: end;
 }
 
+.link-fb:hover{
+    color: rgb(0, 0, 255) !important;
+}
+
+.link-yt:hover{
+    color: rgb(234, 19, 19) !important;
+}
+
 .text-control-6 {
     font-size: 18px;
 }
@@ -381,6 +389,7 @@ footer {
 
     .footer-logo {
         width: 60%;
+        
     }
 
     .footer-text {

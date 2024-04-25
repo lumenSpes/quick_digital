@@ -124,7 +124,8 @@ footer {
     }
 
     .custom-padding{
-        padding: 2rem !important;
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
     }
 
     .custom-btn{
