@@ -30,6 +30,18 @@
     background-image: linear-gradient(to bottom, #000000, #461E59);
 }
 
+.social-links-top-right {
+    justify-content: end;
+}
+
+.link-fb:hover{
+    color: rgb(0, 0, 255) !important;
+}
+
+.link-yt:hover{
+    color: rgb(234, 19, 19) !important;
+}
+
 .iframe-wrapper {
     width: 100%;
     position: relative;
@@ -136,8 +148,13 @@
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3e%3c!--!Font Awesome Free 6.5.2 by %40fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons%2c Inc.--%3e%3cpath fill='white' d='M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z'/%3e%3c/svg%3e") !important;
 }
 
-.accordion-button:not(.collapsed){
+.accordion-button:not(.collapsed) {
     color: #00ACE9 !important;
+}
+
+.accordion-button {
+    box-shadow: none !important;
+    border-bottom: 1px solid #fff !important;
 }
 
 /*--------------------------------------- 
@@ -172,6 +189,10 @@ footer {
     .text-two{
         font-size: 20px !important;
         text-align: justify !important;
+    }
+
+    .social-links-top-right {
+        justify-content: center;
     }
 
     #right-box {

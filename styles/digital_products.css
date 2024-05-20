@@ -26,6 +26,18 @@
     background-color: #461E59;
 }
 
+.social-links-top-right {
+    justify-content: end;
+}
+
+.link-fb:hover{
+    color: rgb(0, 0, 255) !important;
+}
+
+.link-yt:hover{
+    color: rgb(234, 19, 19) !important;
+}
+
 .hero-heading-style{
     color: #00FFBA !important;
 }
@@ -126,6 +138,10 @@ footer {
     .custom-padding{
         padding-left: 2rem !important;
         padding-right: 2rem !important;
+    }
+
+    .social-links-top-right {
+        justify-content: center;
     }
 
     .custom-btn{

@@ -37,8 +37,12 @@
     font-size: 18px;
 }
 
+.font_change {
+    font-family: "Poppins", sans-serif;
+}
+
 .nav-link:hover {
-    background-color: rgb(209, 58, 58);
+    background-color: rgb(209, 58, 58) !important;
     color: #fff !important;
     transition: all 0.5s ease-in-out;
 }
