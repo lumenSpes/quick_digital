@@ -55,7 +55,92 @@
     height: auto;
 }
     
+/* Zoom styles */
+.zoom,
+.original {
+    position: relative;
+    display: block;
+    max-width: 530px;
+    max-height: 430px;
+    width: auto;
+    height: auto;
+    min-height: 400px;
+}
 
+.zoom {
+    display: inline-block;
+}
+
+.original {
+    cursor: crosshair;
+}
+
+#target {
+    max-width: 530px;
+    max-height: 430px;
+    /* min-height: 400px; */
+    width: calc(var(--t) / 2);
+}
+
+.zoom .viewer {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.zoom .viewer img {
+    position: absolute;
+}
+
+.magnifier {
+    position: absolute;
+    background: #000;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+}
+
+.magnifier,
+.viewer {
+    display: none;
+}
+
+.original:hover~div {
+    display: block;
+}
+
+.original::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.order_button {
+    background-color: #e3309d;
+    padding: 6px 12px;
+    border-radius: 10px;
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+}
+
+.order_button:hover {
+    background-color: #f3d2e6;
+    border: 2px solid #e3309d;
+    color: black !important;
+}
+
+.item-description-title {
+    color: #e3309d;
+    /* line-height: 5px; */
+    font-weight: bold;
+}
 /*---------------------------------- 
 |              footer              |
 ---------------------------------- */
