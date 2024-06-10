@@ -10,58 +10,888 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="/styles/quick_shop.css">
+    <link rel="stylesheet" href="/styles/quick_shop.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ac66cde82a.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+        integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-lg-block">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <a class="navbar-brand" href="#">
+                        <img class="py-2" height="auto" width="80%" src="/assets/images/logo.png" alt="">
+                    </a>
+                    <form class="d-flex w-75" role="search">
+                        <div class="me-2 position-relative w-100">
+                            <input class="w-100 input_search" type="search" placeholder="Search" aria-label="Search">
+                            <div
+                                class="position-absolute h-100 top-0 start-0 d-flex align-items-center justify-content-center px-2">
+                                <svg class="" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div
+                                class="position-absolute h-100 top-0 end-0 d-flex align-items-center justify-content-center px-2">
+                                <button class="border-0 search_button" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 w-25">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <div class="position-relative">
+                                    <svg class="cart_sign" height="32px" width="32px" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M9 6C9 4.34315 10.3431 3 12 3C13.6569 3 15 4.34315 15 6H9ZM7 6H4C3.44772 6 3 6.44772 3 7V21C3 21.5523 3.44772 22 4 22H20C20.5523 22 21 21.5523 21 21V7C21 6.44772 20.5523 6 20 6H17C17 3.23858 14.7614 1 12 1C9.23858 1 7 3.23858 7 6ZM9 10C9 11.6569 10.3431 13 12 13C13.6569 13 15 11.6569 15 10H17C17 12.7614 14.7614 15 12 15C9.23858 15 7 12.7614 7 10H9Z">
+                                        </path>
+                                    </svg><span
+                                        class="position-absolute top-100 start-100 translate-middle badge rounded-pill text-bg-secondary">0</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg main_nav">
+            <div class="container">
+                <a class="navbar-brand d-lg-none" href="#">
+                    <img class="py-2" height="auto" width="80%" src="/assets/images/logo.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-start accordion-flush w-75" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <a class="navbar-brand d-lg-none" href="#">
+                            <img class="py-2" height="auto" width="80%" src="/assets/images/logo.png" alt="">
+                        </a>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link fw-semibold" aria-current="page" href="#">ব্লেন্ডার</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-semibold" href="#">ছুরি</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-semibold" aria-current="page" href="#">ট্রিমার</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
     <main>
         <section>
+            <div class="container max-width custom-padding">
+                <img class="w-100" src="https://placehold.co/600x400" alt="">
+            </div>
+        </section>
+        <section>
             <div class="max-width custom-padding container my-5">
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-5">
                     <div class="col">
-                        <div class="border d-flex flex-column gap-2 justify-content-between align-items-center rounded-3">
+                        <div
+                            class="border">
                             <div>
-                                <img class="product_img" src="./assets/images/shop_items/ph3721-26.10-1.jpg" alt="">
+                                <a href="./trimmer_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
                             </div>
-                            <div class="px-3 mt-5 d-flex gap-2 justify-content-between align-items-center flex-column">
-                                <h5 class="product_title">product title</h5>
-                                <span class="fw-bold">৳ 500</span>
+                            <div class="px-3 my-3">
+                                <a href="./trimmer_qd.html" class="product_title text-decoration-none">T9 ট্রিমার</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
                             </div>
-                            <a class="text-decoration-none bg-warning col-12 py-2 text-center rounded-bottom-3 fw-bold text-dark" 
-                            href="./trimmer_qd.html">
-                                এখনই কিনুন
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./trimmer_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
                             </a>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="border d-flex flex-column gap-2 justify-content-between align-items-center rounded-3">
+                        <div
+                            class="border">
                             <div>
-                                <img class="product_img" src="https://vision.com.bd/images/thumbnails/240/290/detailed/28/802972.jpg.png" alt="">
+                                <a href="./blander_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
                             </div>
-                            <div class="px-3 mt-5 d-flex gap-2 justify-content-between align-items-center flex-column">
-                                <h5 class="product_title">Jaipan Grand Master 3-in-1 Blender, 850w, Stainless Steel Blade, 3 Speed, Original Blender and Grinder</h5>
-                                <span class="fw-bold">৳ 500</span>
+                            <div class="px-3 my-3">
+                                <a href="../blander_qd.html" class="product_title text-decoration-none">Jaipan Grand Master 3</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
                             </div>
-                            <a class="text-decoration-none bg-warning col-12 py-2 text-center rounded-bottom-3 fw-bold text-dark" 
-                            href="./blander.html">
-                                এখনই কিনুন
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="../blander_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
                             </a>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="border d-flex flex-column gap-2 justify-content-between align-items-center rounded-3">
+                        <div
+                            class="border">
                             <div>
-                                <img class="product_img" src="./assets/images/shop_items/Remington-Stylist-Hair-Clipper-Set-HC366-570x570.webp" alt="">
+                                <a href="./knife_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
                             </div>
-                            <div class="px-3 mt-5 d-flex gap-2 justify-content-between align-items-center flex-column">
-                                <h5 class="product_title">product title</h5>
-                                <span class="fw-bold">৳ 500</span>
+                            <div class="px-3 my-3">
+                                <a href="./knife_qd.html" class="product_title text-decoration-none">Chef's Knife-32</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
                             </div>
-                            <a class="text-decoration-none bg-warning col-12 py-2 text-center rounded-bottom-3 fw-bold text-dark" 
-                            href="./blades.html">
-                                এখনই কিনুন
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./knife_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./trimmer_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./trimmer_qd.html" class="product_title text-decoration-none">T9 ট্রিমার</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./trimmer_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./blander_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="../blander_qd.html" class="product_title text-decoration-none">Jaipan Grand Master 3</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="../blander_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./knife_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./knife_qd.html" class="product_title text-decoration-none">Chef's Knife-32</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./knife_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./trimmer_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./trimmer_qd.html" class="product_title text-decoration-none">T9 ট্রিমার</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./trimmer_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./blander_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="../blander_qd.html" class="product_title text-decoration-none">Jaipan Grand Master 3</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="../blander_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./knife_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./knife_qd.html" class="product_title text-decoration-none">Chef's Knife-32</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./knife_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./trimmer_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./trimmer_qd.html" class="product_title text-decoration-none">T9 ট্রিমার</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./trimmer_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./blander_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="../blander_qd.html" class="product_title text-decoration-none">Jaipan Grand Master 3</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="../blander_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./knife_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./knife_qd.html" class="product_title text-decoration-none">Chef's Knife-32</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./knife_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./trimmer_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./trimmer_qd.html" class="product_title text-decoration-none">T9 ট্রিমার</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./trimmer_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./blander_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="../blander_qd.html" class="product_title text-decoration-none">Jaipan Grand Master 3</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="../blander_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./knife_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./knife_qd.html" class="product_title text-decoration-none">Chef's Knife-32</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./knife_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./trimmer_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./trimmer_qd.html" class="product_title text-decoration-none">T9 ট্রিমার</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./trimmer_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./blander_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="../blander_qd.html" class="product_title text-decoration-none">Jaipan Grand Master 3</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="../blander_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./knife_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./knife_qd.html" class="product_title text-decoration-none">Chef's Knife-32</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./knife_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./trimmer_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./trimmer_qd.html" class="product_title text-decoration-none">T9 ট্রিমার</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./trimmer_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./blander_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="../blander_qd.html" class="product_title text-decoration-none">Jaipan Grand Master 3</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="../blander_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./knife_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./knife_qd.html" class="product_title text-decoration-none">Chef's Knife-32</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./knife_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./trimmer_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./trimmer_qd.html" class="product_title text-decoration-none">T9 ট্রিমার</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./trimmer_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./blander_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="../blander_qd.html" class="product_title text-decoration-none">Jaipan Grand Master 3</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="../blander_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./knife_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./knife_qd.html" class="product_title text-decoration-none">Chef's Knife-32</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./knife_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./trimmer_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./trimmer_qd.html" class="product_title text-decoration-none">T9 ট্রিমার</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./trimmer_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./blander_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="../blander_qd.html" class="product_title text-decoration-none">Jaipan Grand Master 3</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="../blander_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./knife_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./knife_qd.html" class="product_title text-decoration-none">Chef's Knife-32</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./knife_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./trimmer_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./trimmer_qd.html" class="product_title text-decoration-none">T9 ট্রিমার</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./trimmer_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./blander_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="../blander_qd.html" class="product_title text-decoration-none">Jaipan Grand Master 3</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="../blander_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./knife_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./knife_qd.html" class="product_title text-decoration-none">Chef's Knife-32</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./knife_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./trimmer_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./trimmer_qd.html" class="product_title text-decoration-none">T9 ট্রিমার</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./trimmer_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./blander_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="../blander_qd.html" class="product_title text-decoration-none">Jaipan Grand Master 3</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="../blander_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./knife_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./knife_qd.html" class="product_title text-decoration-none">Chef's Knife-32</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./knife_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./trimmer_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./trimmer_qd.html" class="product_title text-decoration-none">T9 ট্রিমার</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./trimmer_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./blander_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="../blander_qd.html" class="product_title text-decoration-none">Jaipan Grand Master 3</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="../blander_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./knife_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./knife_qd.html" class="product_title text-decoration-none">Chef's Knife-32</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./knife_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./trimmer_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./trimmer_qd.html" class="product_title text-decoration-none">T9 ট্রিমার</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./trimmer_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./blander_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="../blander_qd.html" class="product_title text-decoration-none">Jaipan Grand Master 3</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="../blander_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="border">
+                            <div>
+                                <a href="./knife_qd.html">
+                                    <img class="w-100" src="https://placehold.co/400" alt="">
+                                </a>
+                            </div>
+                            <div class="px-3 my-3">
+                                <a href="./knife_qd.html" class="product_title text-decoration-none">Chef's Knife-32</a>
+                                <span class="d-flex gap-5">
+                                    <span class="fw-bold">৳ 500</span><span class="text-decoration-line-through"> 300</span>
+                                </span>
+                            </div>
+                            <a class="text-decoration-none d-flex align-items-center justify-content-center gap-1 col-12 py-2 fw-bold text-dark purchase_btn"
+                                href="./knife_qd.html">
+                                <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"></path></svg> এখনই কিনুন
                             </a>
                         </div>
                     </div>
@@ -79,11 +909,13 @@
                     <p class="footer-text py-3">
                         For any query please call Or SMS to this number
                         <span style="color: #ffffff;">
-                            <a class="text-decoration-none" style="color: #ffffff;" href="tel:01973784959">01973784959</a>
+                            <a class="text-decoration-none" style="color: #ffffff;"
+                                href="tel:01973784959">01973784959</a>
                         </span>(10AM – 10PM)
                         OR send email to this address
                         <span style="color: #ffffff;">
-                            <a class="text-decoration-none" style="color: #ffffff;" href="mailto:quickdigital121@gmail.com">quickdigital121@gmail.com</a>
+                            <a class="text-decoration-none" style="color: #ffffff;"
+                                href="mailto:quickdigital121@gmail.com">quickdigital121@gmail.com</a>
                         </span>
                     </p>
                 </div>
@@ -107,7 +939,13 @@
                 <div class="col-12 col-lg-3 footer-elements">
                     <h5 class="text-white fs-4 text-start">Prayer</h5>
                     <div class="iframe-prayer-container pt-2">
-                        <iframe class="rounded" loading="lazy" src="https://timesprayer.com/widgets.php?frame=2&amp;lang=en&amp;name=dhaka&amp;avachang=true" style="border: none; overflow: hidden; width: 100%; height: 275px;" data-rocket-lazyload="fitvidscompatible" data-lazy-src="https://timesprayer.com/widgets.php?frame=2&amp;lang=en&amp;name=dhaka&amp;avachang=true" data-ll-status="loaded" class="entered lazyloaded" data-gtm-yt-inspected-181689027_68="true" data-gtm-yt-inspected-17="true"></iframe>
+                        <iframe class="rounded" loading="lazy"
+                            src="https://timesprayer.com/widgets.php?frame=2&amp;lang=en&amp;name=dhaka&amp;avachang=true"
+                            style="border: none; overflow: hidden; width: 100%; height: 275px;"
+                            data-rocket-lazyload="fitvidscompatible"
+                            data-lazy-src="https://timesprayer.com/widgets.php?frame=2&amp;lang=en&amp;name=dhaka&amp;avachang=true"
+                            data-ll-status="loaded" class="entered lazyloaded" data-gtm-yt-inspected-181689027_68="true"
+                            data-gtm-yt-inspected-17="true"></iframe>
                     </div>
                 </div>
                 <div class="col-12 col-lg-3 footer-elements">
@@ -115,15 +953,18 @@
                     <p class="footer-text pt-2">
                         Address: Baridhara DOHS, Dhaka, 1206<br>Mobile No:
                         <span style="color: #ffffff;">
-                            <a class="text-decoration-none" style="color: #ffffff;" href="tel:01973784959">01973784959</a>
+                            <a class="text-decoration-none" style="color: #ffffff;"
+                                href="tel:01973784959">01973784959</a>
                         </span><br>
                         Email:
                         <span style="color: #ffffff;">
-                            <a class="text-decoration-none" style="color: #ffffff;" href="mailto:quickdigital121@gmail.com">quickdigital121@gmail.com</a>
+                            <a class="text-decoration-none" style="color: #ffffff;"
+                                href="mailto:quickdigital121@gmail.com">quickdigital121@gmail.com</a>
                         </span><br>
                         Website:
                         <span style="color: #ffffff;">
-                            <a class="text-decoration-none" style="color: #ffffff;" href="https://www.quickdigital.online">www.quickdigital.online</a>
+                            <a class="text-decoration-none" style="color: #ffffff;"
+                                href="https://www.quickdigital.online">www.quickdigital.online</a>
                         </span>
                     </p>
                 </div>
@@ -139,13 +980,15 @@
                 </div>
                 <div class="col-12 col-md-6 d-flex gap-5 social-links-top-right">
                     <div class="">
-                        <a class="text-decoration-none text-white link-fb" href="https://www.facebook.com/quickdigital01973784939/">
+                        <a class="text-decoration-none text-white link-fb"
+                            href="https://www.facebook.com/quickdigital01973784939/">
                             <i aria-hidden="true" class="text-control-6 fs-6 fab fa-facebook"></i>
                             <span class="text-control-6 fs-6 px-2">ফেসবুক পেজ</span>
                         </a>
                     </div>
                     <div class="">
-                        <a class="text-decoration-none text-white link-yt" href="https://www.youtube.com/@QuickkDigital">
+                        <a class="text-decoration-none text-white link-yt"
+                            href="https://www.youtube.com/@QuickkDigital">
                             <i aria-hidden="true" class="text-control-6 fs-6 fab fa-youtube"></i>
                             <span class="text-control-6 fs-6 px-2">ইউটিউব</span>
                         </a>
@@ -154,6 +997,15 @@
             </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.1/jquery-migrate.min.js"
+        integrity="sha512-KgffulL3mxrOsDicgQWA11O6q6oKeWcV00VxgfJw4TcM8XRQT8Df9EsrYxDf7tpVpfl3qcYD96BpyPvA4d1FDQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+        integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
+
 </html>
